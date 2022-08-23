@@ -1,5 +1,5 @@
 # School Library App
-> App still in dev
+> This is a School library app that can be run in the console.
 
 ## Built With
 
