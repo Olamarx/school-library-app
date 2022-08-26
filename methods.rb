@@ -14,7 +14,7 @@ module Methods
 
   def list_all_people(people)
     people.each_with_index do |person, index|
-      put "#{index}) [#{person.class.name}] Name: #{person.name} ID: #{person.id} Age: #{person.age}"
+      puts "#{index}) [#{person.class.name}] Name: #{person.name} ID: #{person.id} Age: #{person.age}"
     end
     puts '> No people added for the moment' if people.empty?
   end
@@ -31,7 +31,7 @@ module Methods
       puts 'Student was successfully created!'
       student
 
-    when 3
+    when 2
       data = create_teacher
       teacher = Teacher.new(specialization: data[:specialization], age: data[:age], name: data[:name],
                             parent_permission: true)
@@ -78,6 +78,9 @@ module Methods
     puts 'Select a book from the following list by number '
     list_all_books(books)
     book = gets.chomp.to_i
+    puts 'Select a person from the following list by number (not id) '
+    list_all_people(people)
+    person = gets.chomp.to_i
     print 'Date in [YYY/MM/DD] format: '
     date = gets.chomp
 
@@ -90,10 +93,10 @@ module Methods
     end
   end
 
-  def list_rental(rentals)
+  def list_rentals(rentals)
     print 'ID of person: '
     id = gets.chomp.to_i
-    print('Rentals:\n')
+    print("Rentals:\n")
     rentals.map do |rental|
       puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
