@@ -3,7 +3,7 @@ require './app'
 def main
   app = App.new
   exit = 0
-  puts 'Welcome to school  library app'
+  puts 'Welcome to school library app'
 
   while exit.zero?
     print '
@@ -22,4 +22,5 @@ def main
   end
   puts 'Thank you for using our app'
 end
+
 main
